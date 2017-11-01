@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<form method="post">
+    <table border="0" cellspacing="4" cellpadding="2" class="table">
+        <tr>
+            <td bgcolor="#FFFFFF">
+            <div class="form-group">
+                <label>Bill Prints on Day</label>
+                <input size="2" type="text" name="printDate" />
+            </div>
+
+            </td>
+            <td>
+                <div class="form-group">
+                    <table border="1" cellpadding="4" cellspacing="0" class="table">
+                        <tr>
+                            <td bgcolor="#FFFFFF">
+                                <input type="radio" name="basedOn" value="business"/>Business Day
+                                <input type="radio" name="basedOn" value="calendar"/>Calendar Day
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+            <td>
+                of the Month
+            </td>
+        </tr>
+    </table>
+
+    <p>
+        <input type="submit" value="Interest Due"/>
+    </p>
+</form>
+</body>
+</html>
