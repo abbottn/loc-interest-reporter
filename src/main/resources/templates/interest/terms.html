@@ -12,7 +12,25 @@
             <div class="form-group">
                 <label>Bill Prints on Day</label>
                 <input size="2" type="text" name="printDate" />
+                <!-- select name="printDate">
+                    <option th:each="i:{#numbers.sequence(1, 31)}"></option>
+                </select -->
             </div>
+
+            </td>
+
+            <td>
+                of the Month
+            </td>
+        </tr>
+    </table>
+
+    <table border="0" cellspacing="4" cellpadding="2" class="table">
+        <tr>
+            <td bgcolor="#FFFFFF">
+                <div class="form-group">
+                    <label>Type of Day:</label>
+                </div>
 
             </td>
             <td>
@@ -27,14 +45,24 @@
                     </table>
                 </div>
             </td>
-            <td>
-                of the Month
-            </td>
         </tr>
     </table>
 
+    <table border="0" cellspacing="4" cellpadding="2" class="table">
+        <tr>
+            <td bgcolor="#FFFFFF">
+                <div class="form-group">
+                    <label>Interest Rate:</label>
+                    <input size="2" type="text" name="interestRate" />
+                </div>
+            </td>
+            <td>
+                %
+            </td>
+        </tr>
+    </table>
     <p>
-        <input type="submit" value="Interest Due"/>
+        <input type="submit" value="Continue"/>
     </p>
 </form>
 </body>

@@ -1,6 +1,8 @@
 package org.launchcode.locinterestreporter.models;
 
 import java.util.Calendar;
+import java.util.Date;
+
 import static java.util.Calendar.*;
 
 /**
@@ -94,6 +96,14 @@ public class FederalHolidays {
             return dayOfMonth != NA;
         }
 
+    }
+
+    public static Date dateOf(Observance observance, int year) {
+        Calendar today = Calendar.getInstance();
+        today.set(YEAR, year);
+        today.set(MONTH, observance.month);
+
+        return today.getTime();
     }
 
 }
