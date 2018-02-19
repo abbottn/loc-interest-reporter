@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<form method="post"  style="max-width:400px;">
+
+    <div th:each="transaction : ${transactions}" class="checkbox">
+        <input type="checkbox" name="transactionIds" value="${transaction.transactionId}" th:id="${transaction.transactionId}"/>
+        <label th:for="${transaction.transactionId}" th:text="${transaction.transactionDate}"></label>
+
+    </div>
+    <input type="submit" value="Add Transaction"/>
+</form>n
+
+
+</body>
+</html>

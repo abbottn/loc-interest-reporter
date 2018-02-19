@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+<h1 th:text="${title}">Statement</h1>
+
+<form method="post"  style="max-width:400px;" action="add">
+
+
+
+
+
+                Latest Balance Subject to Interest
+                <input size="2" type="text" name="interestBalance"/>
+
+                New Balance
+                <input size="2" type="text" name="newBalance"/>
+
+
+
+
+
+
+            Payment Due Date
+            <input size="2" type="text" name="paymentDate" />
+
+            Minimum Payment
+            <input size="2" type="text" name="minimumPayment" />
+
+
+
+    <p>
+        <input type="submit" value="Transactions" />
+    </p>
+</form>
+</body>
+</html>

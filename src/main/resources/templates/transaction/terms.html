@@ -5,13 +5,13 @@
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
 
-<form method="post">
+<form method="post"  style="max-width:400px;" action="statement">
     <table border="0" cellspacing="4" cellpadding="2" class="table">
         <tr>
-            <td bgcolor="#FFFFFF">
+            <td width="48%"  bgcolor="#FFFFFF">
             <div class="form-group">
                 <label>Bill Prints on Day</label>
-                <input size="2" type="text" name="printDate" />
+                <input size="2" type="text" name="printDay" />
                 <!-- select name="printDate">
                     <option th:each="i:{#numbers.sequence(1, 31)}"></option>
                 </select -->
@@ -19,8 +19,10 @@
 
             </td>
 
-            <td>
-                of the Month
+            <td align='left'>
+                <div class="form-group">
+                    <label>of the Month</label>
+                </div>
             </td>
         </tr>
     </table>
@@ -29,7 +31,7 @@
         <tr>
             <td bgcolor="#FFFFFF">
                 <div class="form-group">
-                    <label>Type of Day:</label>
+                    <label>Statement Based On:</label>
                 </div>
 
             </td>
@@ -38,8 +40,8 @@
                     <table border="1" cellpadding="4" cellspacing="0" class="table">
                         <tr>
                             <td bgcolor="#FFFFFF">
-                                <input type="radio" name="basedOn" value="business"/>Business Day
-                                <input type="radio" name="basedOn" value="calendar"/>Calendar Day
+                                <input type="radio" name="dayBasis" value="business"/>Business Day
+                                <input type="radio" name="dayBasis" value="calendar"/>Calendar Day
                             </td>
                         </tr>
                     </table>
@@ -50,19 +52,19 @@
 
     <table border="0" cellspacing="4" cellpadding="2" class="table">
         <tr>
-            <td bgcolor="#FFFFFF">
+            <td width="50%" align="right" bgcolor="#FFFFFF">
                 <div class="form-group">
                     <label>Interest Rate:</label>
                     <input size="2" type="text" name="interestRate" />
                 </div>
             </td>
-            <td>
+            <td align="left">
                 %
             </td>
         </tr>
     </table>
     <p>
-        <input type="submit" value="Continue"/>
+        <input type="submit" value="Statement Data"/>
     </p>
 </form>
 </body>

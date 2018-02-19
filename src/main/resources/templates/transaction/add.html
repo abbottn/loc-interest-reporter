@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<form method="post"  style="max-width:400px;" action="add-transaction">
+    <div class="form-group">
+        <label for="date-field">Transaction Date:</label>
+        <input class="form-control" id="date-field" name="newDate"/>
+    </div>
+    <div class="form-group">
+        <label for="balance-field">Transaction Amount:</label>
+        <input class="form-control" id="balance-field" name="newAmount"/>
+        <p>Enter negative number for payment</p>
+    </div>
+    <input type="submit" value="Add Transaction"/>
+</form>
+
+
+</body>
+</html>

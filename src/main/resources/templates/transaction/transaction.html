@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<table>
+    <tr>
+        <td>Print Day</td>
+        <td th:text="${printDay}"></td>
+    </tr>
+    <tr>
+        <td>Interest Rate</td>
+        <td th:text="${interestRate}"></td>
+        <td>%</td>
+    </tr>
+</table>
+</body>
+</html>
