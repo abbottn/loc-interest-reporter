@@ -4,7 +4,17 @@
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
 
-<form method="post"  style="max-width:400px;" action="add-transaction">
+<p>
+<table>
+    <tr><td>Interest Rate:</td><td  th:text="${interestRate}"></td></tr>
+    <tr><td>Bill Print Day:</td><td  th:text="${printDay}"></td></tr>
+    <tr><td  th:text="${dayBasis}"></td><td>day:</td></tr>
+
+</table>
+</p>
+<hr />
+
+<form method="post"  style="max-width:400px;" action="additional-transaction">
     <div class="form-group">
         <label for="date-field">Transaction Date:</label>
         <input class="form-control" id="date-field" name="newDate"/>
@@ -12,9 +22,14 @@
     <div class="form-group">
         <label for="balance-field">Transaction Amount:</label>
         <input class="form-control" id="balance-field" name="newAmount"/>
-        <p>Enter negative number for payment</p>
     </div>
-    <input type="submit" value="Add Transaction"/>
+    <div class="form-group">
+        <input type="radio" name="transType" value="Advance" />Advance
+        <input type="radio" name="transType" value="payment" />Payment
+    </div>
+    <input type="checkbox" name="transaction" value="finalTransaction" />Final Transaction
+    <p></p>
+    <input type="submit" value="Continue"/>
 </form>
 
 

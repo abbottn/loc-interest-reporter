@@ -27,7 +27,7 @@ public class TransactionController {
     @RequestMapping(value = "terms", method = RequestMethod.GET)
     public String proesssTermsForm(Model model) {
         // return "printDay" + printDay + "\n" + "dayType" + dayType + "\n" + "interestRate" + interestRate;
-        model.addAttribute("title", "First Time User Data");
+        model.addAttribute("title", "Initial Account Setup Data");
 
         return "transaction/terms";
     }
@@ -41,28 +41,52 @@ public class TransactionController {
     }
 
     @RequestMapping(value = "statement", method = RequestMethod.POST)
-    public String processStatementForm(Model model) {
+    public String processStatementForm(Model model,
+                                       @RequestParam String interestRate,
+                                       @RequestParam String dayBasis,
+                                       @RequestParam String printDay) {
         // return "printDay" + printDay + "\n" + "dayType" + dayType + "\n" + "interestRate" + interestRate;
         model.addAttribute("title","Statement");
+        model.addAttribute("printDay", printDay);
+        model.addAttribute("dayBasis", dayBasis);
+        model.addAttribute("interestRate", interestRate);
         return "transaction/statement";  // go to a URL return add
     }
 
-    @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String displayaddTransactionForm(Model model) {
+    @RequestMapping(value = "initial-transaction", method = RequestMethod.POST)
+    public String displayaddTransactionForm(Model model
+                                            // @RequestParam String interestRate,
+                                            // @RequestParam String dayBasis,
+                                            // @RequestParam String printDay) {
+                                                                            ) {
         model.addAttribute("transactions", TransactionData.getAll());
-        model.addAttribute("title", "Add Transaction");
+        model.addAttribute("title", "Initial Statement Transaction");
+        // model.addAttribute("printDay", printDay);
+        // model.addAttribute("dayBasis", dayBasis);
+        // model.addAttribute("interestRate", interestRate);
+
 
         return "transaction/add";
     }
 
-    @RequestMapping(value = "add-transaction", method = RequestMethod.POST)
-    public String processaddTransactionForm(Model model, @RequestParam String newDate,
+    @RequestMapping(value = "additional-transaction", method = RequestMethod.POST)
+    public String processaddTransactionForm(Model model,
+                                            @RequestParam String interestRate,
+                                            @RequestParam String newDate,
+                                            @RequestParam String transaction,
                                             @RequestParam String newAmount) {
         // return "printDay" + printDay + "\n" + "dayType" + dayType + "\n" + "interestRate" + interestRate;
         // TODO convert newDate to LocalDate
         // TODO create newTransaction using newDate
         // TODO move call to now() to calculation portion
-        model.addAttribute("title", "Add Next Transaction");
+
+        // TODO check if checkbox checked
+        if (transaction == "checked") {
+            int i = 1;
+        }
+
+        model.addAttribute("title", "Additional Statement Transaction");
+        model.addAttribute("interestRate", interestRate);
 
         LocalDate transDate = LocalDate.now();
         double transAmount = Double.parseDouble(newAmount);

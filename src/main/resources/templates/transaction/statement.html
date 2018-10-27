@@ -5,33 +5,50 @@
 <body class="container">
 <h1 th:text="${title}">Statement</h1>
 
-<form method="post"  style="max-width:400px;" action="add">
+<p>
+    <table>
+        <tr><td>Interest Rate:</td><td  th:text="${interestRate}"></td></tr>
+        <tr><td>Bill Print Day:</td><td  th:text="${printDay}"></td></tr>
+        <tr><td  th:text="${dayBasis}"></td><td>day:</td></tr>
 
-
-
-
-
-                Latest Balance Subject to Interest
+    </table>
+</p>
+<hr />
+<form method="post"  style="max-width:400px;" action="initial-transaction">
+    <table border="0" width="500">
+        <tr>
+            <td>
+                Last Balance Subject to Interest
+            </td>
+            <td>
                 <input size="2" type="text" name="interestBalance"/>
-
+            </td>
+            <td>
                 New Balance
+            </td>
+            <td>
                 <input size="2" type="text" name="newBalance"/>
+            </td>
 
-
-
-
-
-
-            Payment Due Date
-            <input size="2" type="text" name="paymentDate" />
-
-            Minimum Payment
-            <input size="2" type="text" name="minimumPayment" />
-
-
+        </tr>
+        <tr>
+            <td>
+                Payment Due Date
+            </td>
+            <td>
+                <input size="2" type="text" name="paymentDate" />
+            </td>
+            <td>
+                Minimum Payment
+            </td>
+            <td>
+                <input size="2" type="text" name="minimumPayment" />
+            </td>
+        </tr>
+    </table>
 
     <p>
-        <input type="submit" value="Transactions" />
+        <input type="submit" value="New Transactions" />
     </p>
 </form>
 </body>
