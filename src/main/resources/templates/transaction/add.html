@@ -6,9 +6,12 @@
 
 <p>
 <table>
-    <tr><td>Interest Rate:</td><td  th:text="${interestRate}"></td></tr>
-    <tr><td>Bill Print Day:</td><td  th:text="${printDay}"></td></tr>
-    <tr><td  th:text="${dayBasis}"></td><td>day:</td></tr>
+    <tr>
+        <input type="hidden" name="interestRate" value="${interestRate}" />
+        <td>Interest Rate:</td><td th:text="${interestRate}"></td>
+    </tr>
+    <tr><td>Bill Print Day:</td><td th:text="${printDay}"></td></tr>
+    <tr><td  th:text="${dayBasis}"></td><td>day</td></tr>
 
 </table>
 </p>

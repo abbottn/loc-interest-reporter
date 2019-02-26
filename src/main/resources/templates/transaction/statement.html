@@ -5,16 +5,37 @@
 <body class="container">
 <h1 th:text="${title}">Statement</h1>
 
-<p>
-    <table>
-        <tr><td>Interest Rate:</td><td  th:text="${interestRate}"></td></tr>
-        <tr><td>Bill Print Day:</td><td  th:text="${printDay}"></td></tr>
-        <tr><td  th:text="${dayBasis}"></td><td>day:</td></tr>
 
-    </table>
-</p>
 <hr />
 <form method="post"  style="max-width:400px;" action="initial-transaction">
+    <p>
+    <table>
+        <tr>
+            <div class="form-group">
+                <input type="hidden" name="interestRate" value="${interestRate}" />
+                <!--<td>Interest Rate:</td><td  th:text="${interestRate}" th:name="interestRate"></td>-->
+                <td>Interest Rate:</td><td  th:text="${interestRate}"></td>
+
+            </div>
+        </tr>
+
+        <tr>
+            <div class="form-group">
+                <input type="hidden" name="printDay" value="${printDay}" />
+                <td>Bill Print Day:</td><td  th:text="${printDay}" th:name="printDay"></td>
+                <!--<td>Bill Print Day:</td><td  th:text="${printDay}" th:name="printDay"></td>-->
+            </div>
+        </tr>
+
+        <tr>
+            <div class="form-group">
+                <input type="hidden" name="dayBasis" value="${dayBasis}" />
+                <td  th:text="${dayBasis}" th:name="dayBasis"></td><td>day:</td>
+            </div>
+        </tr>
+
+    </table>
+    </p>
     <table border="0" width="500">
         <tr>
             <td>

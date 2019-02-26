@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -25,20 +26,29 @@ public class TransactionController {
     }
 
     @RequestMapping(value = "terms", method = RequestMethod.GET)
-    public String proesssTermsForm(Model model) {
+    public String displayTermsForm(Model model) {
         // return "printDay" + printDay + "\n" + "dayType" + dayType + "\n" + "interestRate" + interestRate;
         model.addAttribute("title", "Initial Account Setup Data");
+        System.out.println("method displayTermsForm");
 
         return "transaction/terms";
     }
 
+/*
     @RequestMapping(value = "terms", method = RequestMethod.POST)
-    public String proesssTermsForm(@RequestParam String printDay,
-                                   @RequestParam String dayBasis,
-                                   @RequestParam String interestRate) {
+    // (Model model)
+    public String proesssTermsForm(Model model,
+                                        @RequestParam String printDay,
+                                        @RequestParam String dayBasis,
+                                        @RequestParam String interestRate) {
         // return "printDay" + printDay + "\n" + "dayType" + dayType + "\n" + "interestRate" + interestRate;
+        // model.addattribute
+        model.addAttribute("printDay", printDay);
+        model.addAttribute("dayBasis", dayBasis);
+        model.addAttribute("interestRate", interestRate);
         return "transaction/statement";  // go to a URL return add
     }
+*/
 
     @RequestMapping(value = "statement", method = RequestMethod.POST)
     public String processStatementForm(Model model,
@@ -50,24 +60,35 @@ public class TransactionController {
         model.addAttribute("printDay", printDay);
         model.addAttribute("dayBasis", dayBasis);
         model.addAttribute("interestRate", interestRate);
+        System.out.println("method processStatementForm " + model.toString());
         return "transaction/statement";  // go to a URL return add
     }
 
     @RequestMapping(value = "initial-transaction", method = RequestMethod.POST)
-    public String displayaddTransactionForm(Model model
-                                            // @RequestParam String interestRate,
-                                            // @RequestParam String dayBasis,
-                                            // @RequestParam String printDay) {
-                                                                            ) {
-        model.addAttribute("transactions", TransactionData.getAll());
+    public String displayaddTransactionForm(Model model,
+                                            @RequestParam String interestRate,
+                                            @RequestParam String printDay,
+                                            @RequestParam String dayBasis
+                                            ) {
+
+        //model.addAttribute("transactions", TransactionData.getAll());
         model.addAttribute("title", "Initial Statement Transaction");
-        // model.addAttribute("printDay", printDay);
-        // model.addAttribute("dayBasis", dayBasis);
-        // model.addAttribute("interestRate", interestRate);
+        model.addAttribute("printDay", printDay);
+        model.addAttribute("dayBasis", dayBasis);
+        model.addAttribute("interestRate", interestRate);
 
-
+        System.out.println("method displayaddTransactionForm " + model.toString());
         return "transaction/add";
     }
+
+   // @RequestMapping(value = "ted")
+    //public ModelAndView tedPage() {
+
+        //ModelAndView mv = new ModelAndView("pageName");
+       // mv.addObject("printDay" , 20);
+
+        //return mv;  // populates "ted.jsp"  with Printday set 20
+    //}
 
     @RequestMapping(value = "additional-transaction", method = RequestMethod.POST)
     public String processaddTransactionForm(Model model,
